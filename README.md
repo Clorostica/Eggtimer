@@ -18,23 +18,6 @@
 
 ---
 
-## 📁 Project Structure
-
-Eggtimer/
-├── CSS/
-│ ├── style.css
-│ └── media_queries.css
-├── JS/
-│ └── script.js
-├── index.html
-├── select.html (expected destination page)
-
-yaml
-Copiar
-Editar
-
----
-
 ## 💻 How to Use
 
 1. Open the site: [https://clorostica.github.io/Eggtimer/](https://clorostica.github.io/Eggtimer/)
