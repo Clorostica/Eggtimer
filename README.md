@@ -8,12 +8,6 @@
 
 ---
 
-## 🖼️ Preview
-
-![Preview Screenshot](https://clorostica.github.io/Eggtimer/img/preview.png) <!-- Replace this if you have a preview image -->
-
----
-
 ## 🧩 Features
 
 - 🖥️ **Intro Screen** with playful buttons and animation.
