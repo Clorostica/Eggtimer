@@ -7,33 +7,9 @@
     <link rel="stylesheet" href="https://clorostica.github.io/Eggtimer/CSS/style.css">
     <link rel="stylesheet" href="https://clorostica.github.io/Eggtimer/CSS/media_queries.css">
 </head>
-<style>
-    @keyframes flash {
-        0% { background-color: white; }
-        50% { background-color: red; }
-        100% { background-color: white; }
-    }
-
-
-    @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-    }
-    .flash-effect {
-        animation: flash 0.5s infinite;
-    }
-
-    .timesup {
-        padding: 50px 0;
-        width: 230px;
-        display: block;
-        margin: 0 auto;
-        animation: bounce 0.8s infinite; 
-    }
-</style>
 <body>
     <div class="container flash-effect" id="screen">
-        <h1 class="titulo-container">Egg Timer <3</h1>
+        <h1 class="titulo-container">Egg Timer <3 </h1>
         <div class="main_background" id="pantallaTemporizador">
             <button class="minimize" onclick="minimizeWindow()"></button>
             <button class="close" onclick="closeApp()"></button>
@@ -50,28 +26,7 @@
 
     <audio id="alarmSound" src="path/to/your/alarm.mp3" preload="auto"></audio>
 
-    <script>
-        // Reproducir la alarma automáticamente cuando la página carga
-        window.onload = function() {
-            var alarm = document.getElementById("alarmSound");
-            alarm.play().catch(error => console.log("Reproducción automática bloqueada por el navegador."));
-        };
-
-        function minimizeWindow() {
-            document.body.style.visibility = 'hidden';
-        }
-
-        function closeApp() {
-            window.open('', '_self').close();
-        }
-
-        function snooze() {
-            alert("Snooze activated, we will notify you in 5 minutes.");
-            setTimeout(() => {
-                window.location.href = "times_up.html"; // Redirige después de 5 minutos
-            }, 5 * 60 * 1000);
-        }
-    </script>
+<script src="https://clorostica.github.io/Eggtimer/JS/done.js"></script>
 <script src="https://clorostica.github.io/Eggtimer/JS/script.js"></script>
 </body>
 </html>

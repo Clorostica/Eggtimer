@@ -4,25 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Egg Timer</title>
-    <link rel="stylesheet" href="https://clorostica.github.io/Eggtimer/CSS/style.css">
-    <link rel="stylesheet" href="https://clorostica.github.io/Eggtimer/CSS/media_queries.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/media_queries.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="titulo-container">Egg Timer <3</h1>  
+        <!-- Index -->
         <div class="main_background" id="pantallaInicio">
             <button class="minimize" onclick="minimizarVentana()"></button>
             <button class="close" onclick="cerrarApp()"></button>
             <h1 class="main_title">Let's time your egg!</h1>
-            <button class="start" id="startBtn" onclick="redirigirASelect()">Let's Start</button>
+            <button class="start" id="startBtn" onclick="startApp()">Let's Start</button>
+        </div>
+
+        <!-- Selection -->
+        <div class="main_background" id="pantallaSeleccion" style="display:none;">
+            <h1 class="titulo-container">Select Egg Type</h1>
+            <button class="minimize" onclick="minimizarVentana()"></button>
+            <button class="close" onclick="cerrarApp()"></button>
+            <h1 class="select_title">What are you making today?</h1>
+            <div class="select">
+                <div class="item">
+                    <img class="select_img" src="IMG/egg3.png" alt="Soft Boiled">
+                    <a href="soft-boiled.html"><button class="select_button">Soft Boiled</button></a>
+                </div>
+                <div class="item">
+                    <img class="select_img" src="IMG/egg1.png" alt="Medium Boiled">
+                    <a href="medium-boiled.html"><button class="select_button">Medium Boiled</button></a>
+                </div>
+                <div class="item">
+                    <img class="select_img" src="IMG/egg2.png" alt="Hard Boiled">
+                    <a href="hard-boiled.html"><button class="select_button">Hard Boiled</button></a>
+                </div>
+                <div class="item">
+                    <img class="select_img" src="IMG/egg4.png" alt="Extra Hard Boiled">
+                    <a href="extra-hard-boiled.html"><button class="select_button">Extra Hard Boiled</button></a>
+                </div>
+            </div>
         </div>
     </div>
-<script src="https://clorostica.github.io/Eggtimer/JS/script.js"></script>
-<script>
-    function redirigirASelect() {
-        window.location.href = "select.html"; 
-    }
-</script>
+    <audio id="bg-music" src="/path/to/your/8_bit_ice_cave_lofi.mp3" loop></audio>
+    <script src="JS/script.js"></script>
+
 </body>
 </html>
-

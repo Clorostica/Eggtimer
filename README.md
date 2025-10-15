@@ -42,3 +42,4 @@ To run the project locally:
 git clone https://github.com/clorostica/Eggtimer.git
 cd Eggtimer
 open index.html
+```

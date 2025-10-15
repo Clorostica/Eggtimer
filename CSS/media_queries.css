@@ -1,113 +1,52 @@
-/* Para celulares pequeños (menos de 480px de ancho) */
-@media (max-width: 480px) {
-    body {
-        height: auto; /* Permite desplazamiento si es necesario */
-        padding: 20px;
-    }
-    .timer_button {
-        margin-top: 5px;  /* Mueve el botón hacia arriba */
-        margin-bottom: 60px; /* Ajusta el margen inferior si es necesario */
-        padding: 10px 14px;  /* Puedes ajustar el padding también si es necesario */
-    }
-    .container {
-        width: 90%;  
-        max-width: 350px; 
-        padding: 15px;
-        margin: 20px auto;
-    }
-    .titulo-container {
-        font-size: 26px;
-        text-align: center; 
-        margin-bottom: 15px;
-    }
-
-    .main_background {
-        height: auto; /* Ajuste para evitar desbordamiento */
-        padding: 15px;
-    }
-
+@media (max-width: 768px) {
     .main_title {
-        font-size: 2rem; /* Reducimos tamaño del título principal */
-        padding-top: 100px;
-        padding-bottom: 20px;
-    }
-
-    .start, .stop, .select_button  {
-        font-size: 18px;
-        padding: 12px;
-        width: 90%;
-        margin: 8px auto;
-    }
-   
-    .close, .minimize {
-        width: 40px;
-        height: 40px;
-        right: 10px;
-        top: 5px;
-    }
-
-    .minimize {
-        right: 60px;
+        font-size: 2.4rem;
     }
 
     .select {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
         gap: 20px;
+        padding: 20px;
     }
 
     .select_img {
-        height: 120px; 
+        height: 90px;
+    }
+
+    .start, .stop, .timer_button {
+        font-size: 22px;
+        padding: 14px 24px;
     }
 
     #timer-display {
-        font-size: 100px; 
+        font-size: 60px;
     }
 
-    .select_title {
-        font-size: 24px; 
-    }
-
-    .timesup {
-        width: 140px; 
+    .close, .minimize {
+        width: 50px;
+        height: 50px;
+        top: 10px;
     }
 }
 
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-        padding: 20px;
+@media (max-width: 480px) {
+    .main_title {
+        font-size: 2rem;
     }
 
-    .titulo-container {
-        font-size: 26px;
-    }
-
-    .select {
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 25px;
-        padding-bottom: 100px;
-    }
-
-    .select_img {
-        height: 100px;
-    }
-
-    .select_button{
+    .select_button {
+        width: 180px;
         font-size: 18px;
-        padding: 4px;
-        margin: -16px;
     }
 
-    #timer-display {
-        font-size: 100px;
+    .timer_controls {
+        flex-direction: column;
     }
 
-    .timesup {
-        width: 160px;
-    }
-    .timer_button {
-        margin-top: 5px;  
-        margin-bottom: 20px; 
-        padding: 10px 14px;  
+    .close, .minimize {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 10px;
     }
 }
