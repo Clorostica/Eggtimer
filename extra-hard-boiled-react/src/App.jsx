@@ -15,36 +15,51 @@ export default function App() {
   const bgRef    = useRef(null);
   const alarmRef = useRef(null);
 
-  // start bg music on first user interaction
+  // Try autoplay immediately; fall back to first user gesture
   useEffect(() => {
-    const tryPlay = () => {
-      bgRef.current?.play().catch(() => {});
-      window.removeEventListener("pointerdown", tryPlay);
-    };
-    window.addEventListener("pointerdown", tryPlay);
-    return () => window.removeEventListener("pointerdown", tryPlay);
+    const audio = bgRef.current;
+    if (!audio) return;
+    audio.volume = 0.5;
+
+    const startOnGesture = () => audio.play().catch(() => {});
+
+    audio.play().catch(() => {
+      // autoplay blocked — start on first interaction instead
+      window.addEventListener("pointerdown", startOnGesture, { once: true });
+    });
+
+    return () => window.removeEventListener("pointerdown", startOnGesture);
   }, []);
 
-  // sync mute state
+  // Sync mute; if user unmutes while bg is stalled, kick it off
   useEffect(() => {
     if (bgRef.current)    bgRef.current.muted    = muted;
     if (alarmRef.current) alarmRef.current.muted = muted;
-  }, [muted]);
 
-  // when timer ends: pause bg music, play alarm
+    if (!muted && bgRef.current?.paused && page !== PAGES.TIMES_UP) {
+      bgRef.current.play().catch(() => {});
+    }
+  }, [muted]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Alarm vs background music
   useEffect(() => {
     if (page === PAGES.TIMES_UP) {
       bgRef.current?.pause();
-      if (alarmRef.current) alarmRef.current.volume = 1.0;
-      alarmRef.current?.play().catch(() => {});
+      if (alarmRef.current) {
+        alarmRef.current.volume = 1.0;
+        alarmRef.current.play().catch(() => {});
+      }
     } else {
       alarmRef.current?.pause();
       if (alarmRef.current) alarmRef.current.currentTime = 0;
-      bgRef.current?.play().catch(() => {});
+      if (!muted) bgRef.current?.play().catch(() => {});
     }
-  }, [page]);
+  }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const handleClose = () => window.close();
+  const handleClose = () => {
+    window.close();
+    setVisible(false); // fallback if browser blocks window.close()
+  };
 
   if (!visible) return null;
 
@@ -67,7 +82,6 @@ export default function App() {
       <audio ref={bgRef}    src="/music.mp3" loop />
       <audio ref={alarmRef} src="/alarm.mp3" loop />
 
-      {/* X always top-right, outside of page content */}
       <button className="win-btn win-btn--close app-close" onClick={handleClose} aria-label="Cerrar" />
 
       {page === PAGES.HOME && (
