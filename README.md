@@ -1,19 +1,14 @@
 # Egg Timer
 
-Pick how you want your egg (soft, medium, hard or extra hard boiled) and the timer counts down for you.
+Pick how you want your egg (soft, medium, hard or extra hard boiled) and the timer counts down for you, with pixel-art screens and chiptune music.
 
-Live: https://clorostica.github.io/Eggtimer/
+Live: https://eggtimer-ashen.vercel.app
 
-The root of the repo is the original version in plain HTML, CSS and JavaScript. `extra-hard-boiled-react/` is the same idea rebuilt in React with Vite.
+It started as a plain HTML, CSS and JavaScript project, one page per egg. I later rebuilt it in React with Vite; the old version is in the git history.
 
 ## Running it locally
 
-Plain version: open `index.html` in a browser.
-
-React version:
-
 ```bash
-cd extra-hard-boiled-react
 npm install
 npm run dev
 ```
